@@ -23,6 +23,19 @@ module ActiveModel
       attribute :integer_field, :string
     end
 
+    test "inspecting the class" do
+      output = "ActiveModel::AttributesTest::ModelForAttributesTest(" \
+               "integer_field: integer, " \
+               "string_field: string, " \
+               "decimal_field: decimal, " \
+               "string_with_default: string, " \
+               "date_field: date, " \
+               "boolean_field: boolean" \
+               ")"
+
+      assert_equal output, ModelForAttributesTest.inspect
+    end
+
     test "properties assignment" do
       data = ModelForAttributesTest.new(
         integer_field: "2.3",
